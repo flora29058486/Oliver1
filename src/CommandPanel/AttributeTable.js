@@ -1,5 +1,41 @@
 
-import AttributeInput from "./AttributeInput";
+// import AttributeInput from "./AttributeInput";
+
+import { useEffect, useState } from "react"
+
+const AttributeInput = (props) => {
+
+	const [attributeName, setAttributeName] = useState(props.name || "");
+	const [attributeVal, setAttributeVal] = useState(props.val || "");
+
+	// useEffect(() => {
+	// 	props.setVal(attributeName, attributeVal);
+	// }, [attributeName, attributeVal])
+
+	return (
+		<tr>
+			<td>
+				<input 
+					value={attributeName}
+					onChange={(e) => {
+						setAttributeName(e.target.value)
+						props.setVal(e.target.value, attributeVal);
+					}}
+				/>
+			</td>
+			<td>
+				<input 
+					value={attributeVal}
+					onChange={(e) => {
+						setAttributeVal(e.target.value)
+						props.setVal(attributeName, e.target.value);
+					}}
+				/>
+			</td>
+		</tr>
+	)
+}
+
 
 const AttributeTable = (props) => {
 	const attributeInputs = props.attrs.map((v, i) => {
@@ -15,6 +51,7 @@ const AttributeTable = (props) => {
 					tmpAttr.val = v;
 					tmpAttrs[i] = tmpAttr;
 					props.setAttrs(tmpAttrs);
+					props.setChanged(true);
 				}}
 			/>
 		)

@@ -1,4 +1,108 @@
 
 .CommandPanel {
-	width: 700px;
+	width: 430px;
+	margin: 10px;
+	max-height: 750px;
+	min-height: 750px;
+	overflow-y: scroll;
+	border: #eee solid 1px;
+}
+
+.CommandPanel::-webkit-scrollbar {
+	width: 2px;
+}
+
+.CommandPanel::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+}
+
+.CommandPanel::-webkit-scrollbar-thumb {
+	background-color: rgb(195, 238, 255);
+	outline: 1px solid rgb(159, 199, 238);
+}
+
+
+
+.CommandPanelModeButtons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	width: 400px;
+}
+
+.CommandPanelModeButton {
+	background-color: rgb(255, 243, 228);
+	border: #eee solid 1px;
+	width: fit-content;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.CommandPanelModeButton:hover {
+	background-color: rgb(240, 224, 204);
+}
+
+
+
+.CommandPanelModePanel {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 10px;
+}
+
+.CommandPanelCreateButtons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	width: 400px;
+	margin-top: 20px;
+}
+
+.CommandPanelCreateButton {
+	background-color: rgb(161, 255, 124);
+	border: #eee solid 1px;
+	width: 100px;
+	height: fit-content;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.CommandPanelCreateButton:hover {
+	background-color: rgb(134, 224, 99);
+}
+
+
+
+textarea {
+	height: 100px;
+}
+
+.AddRow {
+	background-color: rgb(210, 200, 255);
+	border: #eee solid 1px;
+	width: 100px;
+	height: fit-content;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.CurrentJspTextArea {
+	width: 1000px;
+	height: 700px;
+	border-color: rgb(71, 135, 160);
+	border-width: 2px;
+	padding: 10px;
+}
+
+.CurrentJspTextArea::-webkit-scrollbar {
+	width: 3px;
+}
+
+.CurrentJspTextArea::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+}
+
+.CurrentJspTextArea::-webkit-scrollbar-thumb {
+	background-color: rgb(195, 238, 255);
+	outline: 1px solid rgb(159, 199, 238);
 }

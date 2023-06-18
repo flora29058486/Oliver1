@@ -1,25 +1,22 @@
 import React, { useEffect, useState } from "react";
-import AttributeTable from "./AttributeTable";
+import AttributeTable from "../AttributeTable";
 
-const TextPanel = (props) => {
+const Text = (props) => {
 	const [text, setText] = useState("");
 
-	const [attrs, setAttrs] = useState([
-
-	]);
-
-	useEffect(() => {
+	setTimeout(() => {
 		props.setJspObj({
 			mode: "Text",
 			type: "p",
-			attrs: attrs,
 			text: text,
-		})
-	}, [JSON.stringify(attrs), text])
+		});
+
+	}, 400) // bad code
 
 	return (
 		<div>
-			<AttributeTable attrs={attrs} setAttrs={setAttrs}/>
+			{/* <AttributeTable attrs={attrs} setAttrs={setAttrs} setChanged={setChanged}/> */}
+			<p>Text</p>
 			<textarea
 				value={text}
 				onChange={(e) => {
@@ -30,4 +27,4 @@ const TextPanel = (props) => {
 	)
 }
 
-export default TextPanel;
+export default Text;
