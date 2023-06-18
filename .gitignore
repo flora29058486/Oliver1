@@ -10,6 +10,7 @@
 
 # production
 /build
+/PDR19-YouTube-611_Summer_Ideas_App.jsp
 
 # misc
 .DS_Store
@@ -21,3 +22,4 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
