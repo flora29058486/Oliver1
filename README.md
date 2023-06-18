@@ -7,3 +7,5 @@
 - 暫時解決方案：若在 ToolInBodyInstallAppLink 要跳去其他模式，先選另一個模式再選要的模式。
 
 
+p.s. 可能還有其他 bug，使用時注意一下
+
