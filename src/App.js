@@ -61,7 +61,7 @@ function App() {
       case "NormalPicture":
         ret += `<picture>\n`;
         ret += `\t<source srcset="${v.srcset}" type="image/webp">\n`;
-        ret += `\t<img itemprop="image" alt="${v.alt}" src="${v.src}" title="${v.title}" loading="lazy" class="mobile-wide" width="350" height="480">\n`;
+        ret += `\t<img itemprop="image" alt="${v.alt}" src="${v.src}" title="${v.title}" loading="lazy" class="mobile-wide" width="${v.width}" height="${v.height}">\n`;
         ret += `</picture>\n`;
         break;
           
@@ -75,9 +75,9 @@ function App() {
       case "TitlePicture":
         ret += `<picture id="a0">\n`;
         ret += `<source media="(min-width: 550px)" srcset="${v.srcset1}" type="image/webp">\n`;
-        ret += `<source media="(max-width: 550px)" srcset="${v.srcset2}" type="image/webp" width="550" height="309">\n`;
+        ret += `<source media="(max-width: 550px)" srcset="${v.srcset2}" type="image/webp" width="${v.width}" height="${v.height}">\n`;
         ret += `<source media="(min-width: 550px)" srcset="${v.srcset3}" type="image/jpeg">\n`;
-        ret += `<source media="(max-width: 550px)" srcset="${v.srcset4}" type="image/jpeg" width="550" height="309">\n`;
+        ret += `<source media="(max-width: 550px)" srcset="${v.srcset4}" type="image/jpeg" width="${v.width}" height="${v.height}">\n`;
         ret += `<img src="${v.src}" alt="${v.alt}" loading="eager" width="1000" height="333">\n`;
         ret += `</picture>\n`;
         break;
@@ -99,7 +99,12 @@ function App() {
         ret += StaticTexts.Button_MobileDownloadButton;
         break;
       case "ToolDevider":
-        ret += StaticTexts.ToolDevider;
+        ret += `<jsp:include page="/stat/blog/resource/module/cta-responsive-download-master.jsp">\n`;
+        ret += `\t<jsp:param name="buttonProductId" value="211" />\n`;
+        ret += `\t<jsp:param name="template" value="Mobile" />\n`;
+        ret += `\t<jsp:param name="CustomText" value="${v.text}" />\n`;
+        ret += `\t<jsp:param name="CustomSlogan" value="${v.slogan}" />\n`;
+        ret += `</jsp:include>\n`;
         break;
       default:
         break;

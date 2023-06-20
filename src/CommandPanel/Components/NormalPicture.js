@@ -6,6 +6,8 @@ const NormalPicture = (props) => {
 	const [alt, setAlt] = useState("Summer Food")
 	const [src, setSrc] = useState("img/img_02.jpg")
 	const [title, setTitle] = useState("PhotoDirector App - Best AI Editing App")
+	const [width, setWidth] = useState("330")
+	const [height, setHeight] = useState("550")
 
 	useEffect(() => {
 		props.setJspObj({
@@ -15,8 +17,10 @@ const NormalPicture = (props) => {
 			alt: alt,
 			src: src,
 			title: title,
+			width: width,
+			height: height
 		});
-	}, [srcset, alt, src, title]);
+	}, [srcset, alt, src, title, width, height]);
 
 
 
@@ -41,6 +45,16 @@ const NormalPicture = (props) => {
 			<textarea
 				value={title}
 				onChange={(e) => setTitle(e.target.value)}
+			/>
+			<p>width</p>
+			<input
+				value={width}
+				onChange={(e) => setWidth(e.target.value)}
+			/>
+			<p>height</p>
+			<input
+				value={height}
+				onChange={(e) => setHeight(e.target.value)}
 			/>
 		</div>
 	)
