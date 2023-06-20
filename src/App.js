@@ -45,6 +45,8 @@ function App() {
       case "ToolDevider":
         setMode("ToolDevider");
         break;
+      default:
+        break;
     }
   };
 
@@ -98,6 +100,8 @@ function App() {
         break;
       case "ToolDevider":
         ret += StaticTexts.ToolDevider;
+        break;
+      default:
         break;
     }
     return ret;

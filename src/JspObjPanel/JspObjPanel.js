@@ -1,5 +1,3 @@
-
-
 const jspObjItem = (props) => {
 	return (
 		<div>

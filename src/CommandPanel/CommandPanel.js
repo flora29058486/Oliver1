@@ -25,7 +25,7 @@ const ModeButton = (props) => {
 				changeMode(e.target.value);
 				props.cleanJspObj();
 			}}
-			style={mode == props.value? {backgroundColor: "rgb(216, 183, 142)"}:{}}
+			style={mode === props.value? {backgroundColor: "rgb(216, 183, 142)"}:{}}
 		>
 			{props.value}
 		</button>
@@ -42,6 +42,13 @@ const CommandPanel = () => {
 	const [jspObj, setJspObj] = useState({});
 	const [created, setCreated] = useState(false);
 	const componentList = ["Text", "NormalPicture", "IndexUlConnentArticleID", "TitlePicture", "H2Orange", "H2FakeH3", "ToolInBodyInstallAppLink", "ButtonMobileDownloadButton", "ToolDevider"];
+	
+	useEffect(() => {
+		console.log('jspObj: ', jspObj)
+	}, [jspObj])
+
+	var modePanel;
+
 	switch (mode) {
 		case "Text":
 			modePanel = <Text jspObj={jspObj} setJspObj={setJspObj}/>;
@@ -70,16 +77,13 @@ const CommandPanel = () => {
 		case "ToolDevider":
 			modePanel = <ToolDevider jspObj={jspObj} setJspObj={setJspObj}/>;
 			break;
+		default:
+			break;
 	}
 	const modeButtons = componentList.map((v, i) => {
 		return <ModeButton key={i} value={v} cleanJspObj={() => setJspObj({})}/>
 	})
 
-	var modePanel;
-
-	useEffect(() => {
-		console.log('jspObj: ', jspObj)
-	}, [JSON.stringify(jspObj)])
 	
 	return (
 		<div className="CommandPanel">

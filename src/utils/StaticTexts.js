@@ -38,10 +38,10 @@ const StaticTexts = {
 </style>\n`,
 	Button_MobileDownloadButton: `
 <jsp:include page="/stat/blog/resource/module/cta-responsive-download-master.jsp">
-<jsp:param name="buttonProductId" value="211" />
-<jsp:param name="template" value="Mobile" />
-<jsp:param name="CustomText" value="Free Download" />
-<jsp:param name="CustomSlogan" value="Effortless Photo Editing" />
+	<jsp:param name="buttonProductId" value="211" />
+	<jsp:param name="template" value="Mobile" />
+	<jsp:param name="CustomText" value="Free Download" />
+	<jsp:param name="CustomSlogan" value="Effortless Photo Editing" />
 </jsp:include>\n`,
 	ToolDevider: `
 <div class="divider"></div>
