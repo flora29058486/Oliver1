@@ -27,6 +27,9 @@ function App() {
       case "IndexUlConnentArticleID":
         setMode("IndexUlConnentArticleID");
         break;
+      case "FAQs":
+        setMode("FAQs");
+        break;
       case "TitlePicture":
         setMode("TitlePicture");
         break;
@@ -75,6 +78,23 @@ function App() {
         })
         ret += `</ul>\n`;
         break;
+      
+      case "FAQs":
+        ret += `<div class="schema-faq-code" itemscope="" itemtype="https://schema.org/FAQPage">\n`;
+        ret += `\t<h2 id="" class="title-h2 orange" itemprop="name"></h2>\n`
+        if (v.liList) v.liList.map((v, i) => {
+          ret += `\t<div itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question" class="faq-question">\n`;
+          ret += `\t\t<h3 itemprop="name" class="accordion">${i+1}. ${v.id}</h3>\n`
+          ret += `\t\t<div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">\n`;
+          ret += `\t\t\t<div itemprop="text" class="faq-a">\n\n\n`
+          ret += `\t\t\t</div>\n`
+          ret += `\t\t</div>\n`
+          ret += `\t</div>\n`
+        })
+        ret += `</div>\n`;
+        ret += `<script defer src="/stat/blog/resource/module/video&faq.js"></script>\n`;
+        break;
+      
       case "TitlePicture":
         ret += `<picture id="a0">\n`;
         ret += `<source media="(min-width: 550px)" srcset="${v.srcset1}" type="image/webp">\n`;

@@ -12,6 +12,7 @@ import ButtonMobileDownloadButton from "./Components/ButtonMobileDownloadButton"
 import ToolDevider from "./Components/ToolDevider";
 import "./CommandPanel.css"
 import MobileButtonWithoutLogo from "./Components/MobileButtonWithoutLogo";
+import FAQs from "./Components/FAQs";
 // import RenderImage from "../image/renderImage";
 
 const ModeButton = (props) => {
@@ -44,7 +45,7 @@ const CommandPanel = () => {
 	const [jspObj, setJspObj] = useState({});
 	const [created, setCreated] = useState(false);
 	// const componentList = ["Text", "NormalPicture", "IndexUlConnentArticleID", "TitlePicture", "H2Orange", "H2FakeH3", "ToolInBodyInstallAppLink", "ButtonMobileDownloadButton", "ToolDevider"];
-	const componentList = ["TitlePicture", "IndexUlConnentArticleID", "H2Orange", "H2FakeH3" , "ToolDevider", "NormalPicture", "Text",  "ToolInBodyInstallAppLink", "ButtonMobileDownloadButton", "MobileButtonWithoutLogo"];
+	const componentList = ["TitlePicture", "IndexUlConnentArticleID", "FAQs", "H2Orange", "H2FakeH3" , "ToolDevider", "NormalPicture", "Text",  "ToolInBodyInstallAppLink", "ButtonMobileDownloadButton", "MobileButtonWithoutLogo"];
 
 	
 	useEffect(() => {
@@ -62,6 +63,9 @@ const CommandPanel = () => {
 			break;
 		case "IndexUlConnentArticleID":
 			modePanel = <IndexUlConnentArticleID jspObj={jspObj} setJspObj={setJspObj}/>;
+			break;
+		case "FAQs":
+			modePanel = <FAQs jspObj={jspObj} setJspObj={setJspObj}/>;
 			break;
 		case "TitlePicture":
 			modePanel = <TitlePicture jspObj={jspObj} setJspObj={setJspObj}/>;
