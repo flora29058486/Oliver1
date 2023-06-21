@@ -11,6 +11,8 @@ import ToolInBodyInstallAppLink from "./Components/ToolInBodyInstallAppLink";
 import ButtonMobileDownloadButton from "./Components/ButtonMobileDownloadButton";
 import ToolDevider from "./Components/ToolDevider";
 import "./CommandPanel.css"
+import MobileButtonWithoutLogo from "./Components/MobileButtonWithoutLogo";
+// import RenderImage from "../image/renderImage";
 
 const ModeButton = (props) => {
 	const {
@@ -41,7 +43,9 @@ const CommandPanel = () => {
 	
 	const [jspObj, setJspObj] = useState({});
 	const [created, setCreated] = useState(false);
-	const componentList = ["Text", "NormalPicture", "IndexUlConnentArticleID", "TitlePicture", "H2Orange", "H2FakeH3", "ToolInBodyInstallAppLink", "ButtonMobileDownloadButton", "ToolDevider"];
+	// const componentList = ["Text", "NormalPicture", "IndexUlConnentArticleID", "TitlePicture", "H2Orange", "H2FakeH3", "ToolInBodyInstallAppLink", "ButtonMobileDownloadButton", "ToolDevider"];
+	const componentList = ["TitlePicture", "IndexUlConnentArticleID", "H2Orange", "H2FakeH3" , "ToolDevider", "NormalPicture", "Text",  "ToolInBodyInstallAppLink", "ButtonMobileDownloadButton", "MobileButtonWithoutLogo"];
+
 	
 	useEffect(() => {
 		console.log('jspObj: ', jspObj)
@@ -77,9 +81,22 @@ const CommandPanel = () => {
 		case "ToolDevider":
 			modePanel = <ToolDevider jspObj={jspObj} setJspObj={setJspObj}/>;
 			break;
+		case "MobileButtonWithoutLogo":
+			modePanel = <MobileButtonWithoutLogo jspObj={jspObj} setJspObj={setJspObj}/>;
+			break;
 		default:
 			break;
 	}
+	// const modeButtons = componentList.map((v, i) => {
+	// 	console.log(v, i)
+	// 	return (
+	// 		<div>
+	// 			<RenderImage value={v} />
+	// 			<ModeButton key={i} value={v} cleanJspObj={() => setJspObj({})}/>
+	// 		</div>
+	// 	)
+	// })
+
 	const modeButtons = componentList.map((v, i) => {
 		return <ModeButton key={i} value={v} cleanJspObj={() => setJspObj({})}/>
 	})

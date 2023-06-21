@@ -42,6 +42,9 @@ function App() {
       case "ButtonMobileDownloadButton":
         setMode("ButtonMobileDownloadButton");
         break;
+      case "MobileButtonWithoutLogo":
+        setMode("MobileButtonWithoutLogo");
+        break;
       case "ToolDevider":
         setMode("ToolDevider");
         break;
@@ -96,15 +99,22 @@ function App() {
         ret += `</a>\n`;
         break;
       case "ButtonMobileDownloadButton":
-        ret += StaticTexts.Button_MobileDownloadButton;
-        break;
-      case "ToolDevider":
         ret += `<jsp:include page="/stat/blog/resource/module/cta-responsive-download-master.jsp">\n`;
         ret += `\t<jsp:param name="buttonProductId" value="211" />\n`;
         ret += `\t<jsp:param name="template" value="Mobile" />\n`;
         ret += `\t<jsp:param name="CustomText" value="${v.text}" />\n`;
         ret += `\t<jsp:param name="CustomSlogan" value="${v.slogan}" />\n`;
         ret += `</jsp:include>\n`;
+        break;
+      case "MobileButtonWithoutLogo":
+        ret += `<jsp:include page="/stat/blog/resource/module/cta-responsive-download-master.jsp">\n`;
+        ret += `\t<jsp:param name="buttonProductId" value="211" />\n`;
+        ret += `\t<jsp:param name="template" value="DownloadButton" />\n`;
+        ret += `\t<jsp:param name="CustomText" value="${v.text}" />\n`;
+        ret += `</jsp:include>\n`;
+        break;
+      case "ToolDevider":
+        ret += `<div class="divider"></div>\n`
         break;
       default:
         break;
