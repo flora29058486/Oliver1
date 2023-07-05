@@ -1,6 +1,6 @@
 
 const StaticTexts = {
-	Initialize: `<a%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+	Initialize: `<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <link rel="preload" href="/stat/blog/resource/css/blog.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <link href="/prog/bar/css/font.css">
 

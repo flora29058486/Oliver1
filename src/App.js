@@ -67,7 +67,7 @@ function App() {
       case "NormalPicture":
         ret += `<picture>\n`;
         ret += `\t<source srcset="${v.srcset}" type="image/webp">\n`;
-        ret += `\t<img itemprop="image" alt="${v.alt}" src="${v.src}" title="${v.title}" loading="lazy" class="mobile-wide" width="${v.width}" height="${v.height}">\n`;
+        ret += `\t<img itemprop="image" alt="${v.alt}" src="${v.src}" title="${v.title}" loading="lazy" class="mobile-ui" width="${v.width}" height="${v.height}">\n`;
         ret += `</picture>\n`;
         break;
           
