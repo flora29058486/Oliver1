@@ -9,7 +9,7 @@ import H2Orange from "./Components/H2Orange";
 import H2FakeH3 from "./Components/H2FakeH3";
 import ToolInBodyInstallAppLink from "./Components/ToolInBodyInstallAppLink";
 import ButtonMobileDownloadButton from "./Components/ButtonMobileDownloadButton";
-import ToolDevider from "./Components/ToolDevider";
+import VideoBanner from "./Components/VideoBanner";
 import "./CommandPanel.css"
 import MobileButtonWithoutLogo from "./Components/MobileButtonWithoutLogo";
 import FAQs from "./Components/FAQs";
@@ -44,8 +44,8 @@ const CommandPanel = () => {
 	
 	const [jspObj, setJspObj] = useState({});
 	const [created, setCreated] = useState(false);
-	// const componentList = ["Text", "NormalPicture", "IndexUlConnentArticleID", "TitlePicture", "H2Orange", "H2FakeH3", "ToolInBodyInstallAppLink", "ButtonMobileDownloadButton", "ToolDevider"];
-	const componentList = ["TitlePicture", "IndexUlConnentArticleID", "FAQs", "H2Orange", "H2FakeH3" , "ToolDevider", "NormalPicture", "Text",  "ToolInBodyInstallAppLink", "ButtonMobileDownloadButton", "MobileButtonWithoutLogo"];
+
+	const componentList = ["TitlePicture", "IndexUlConnentArticleID", "FAQs", "H2Orange", "H2FakeH3" , "VideoBanner", "NormalPicture", "Text",  "ToolInBodyInstallAppLink", "ButtonMobileDownloadButton", "MobileButtonWithoutLogo"];
 
 	
 	useEffect(() => {
@@ -82,8 +82,8 @@ const CommandPanel = () => {
 		case "ButtonMobileDownloadButton":
 			modePanel = <ButtonMobileDownloadButton jspObj={jspObj} setJspObj={setJspObj}/>;
 			break;
-		case "ToolDevider":
-			modePanel = <ToolDevider jspObj={jspObj} setJspObj={setJspObj}/>;
+		case "VideoBanner":
+			modePanel = <VideoBanner jspObj={jspObj} setJspObj={setJspObj}/>;
 			break;
 		case "MobileButtonWithoutLogo":
 			modePanel = <MobileButtonWithoutLogo jspObj={jspObj} setJspObj={setJspObj}/>;

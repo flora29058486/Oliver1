@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import AttributeTable from "../AttributeTable";
 
 const NormalPicture = (props) => {
-	const [srcset, setSrcset] = useState("img/img_02.webp")
-	const [alt, setAlt] = useState("Summer Food")
-	const [src, setSrc] = useState("img/img_02.jpg")
-	const [title, setTitle] = useState("PhotoDirector App - Best AI Editing App")
-	const [width, setWidth] = useState("330")
-	const [height, setHeight] = useState("550")
+	const [srcset, setSrcset] = useState("img/img_0.webp");
+	const [alt, setAlt] = useState("");
+	const [src, setSrc] = useState("img/img_0.jpg");
+	const [title, setTitle] = useState("PhotoDirector App - Best AI Editing App");
+	const [width, setWidth] = useState("");
+	const [height, setHeight] = useState("");
+	const [size, setSize] = useState("mobile-ui");
 
 	useEffect(() => {
 		props.setJspObj({
@@ -18,9 +19,10 @@ const NormalPicture = (props) => {
 			src: src,
 			title: title,
 			width: width,
-			height: height
+			height: height,
+			size: size
 		});
-	}, [srcset, alt, src, title, width, height]);
+	}, [srcset, alt, src, title, width, height, size]);
 
 
 
@@ -31,15 +33,15 @@ const NormalPicture = (props) => {
 				value={srcset}
 				onChange={(e) => setSrcset(e.target.value)}
 			/>
-			<p>alt</p>
-			<textarea
-				value={alt}
-				onChange={(e) => setAlt(e.target.value)}
-			/>
 			<p>src</p>
 			<input
 				value={src}
 				onChange={(e) => setSrc(e.target.value)}
+			/>
+			<p>alt</p>
+			<textarea
+				value={alt}
+				onChange={(e) => setAlt(e.target.value)}
 			/>
 			<p>title</p>
 			<textarea
@@ -56,56 +58,25 @@ const NormalPicture = (props) => {
 				value={height}
 				onChange={(e) => setHeight(e.target.value)}
 			/>
+			<p>size</p>
+			<button
+				className="AddRow"
+				onClick={() => {
+					setSize("mobile-ui");
+				}}
+			>
+				mobile-ui
+			</button>
+			<button
+				className="AddRow"
+				onClick={() => {
+					setSize("mobile-wide");
+				}}
+			>
+				mobile-wide
+			</button>
 		</div>
 	)
 }
 
 export default NormalPicture;
-// import { useEffect, useState } from "react";
-// import AttributeTable from "./AttributeTable";
-
-// const Picture = (props) => {
-
-// 	const [attrs1, setAttrs1] = useState([
-// 		{
-// 			"name": "srcset",
-// 			"val": "img/img_02.webp",
-// 		},
-// 	]);
-// 	const [attrs2, setAttrs2] = useState([
-// 		{
-// 			"name": "alt",
-// 			"val": "Summer Food",
-// 		},
-// 		{
-// 			"name": "src",
-// 			"val": "img/img_02.jpg",
-// 		},
-// 		{
-// 			"name": "title",
-// 			"val": "PhotoDirector App - Best AI Editing App",
-// 		},
-// 	]);
-// 	const [changed, setChanged] = useState(false);
-
-// 	setTimeout(() => {
-// 		if (changed) props.setJspObj({
-// 			mode: "Picture",
-// 			type: "Picture",
-// 			attrs1: attrs1,
-// 			attrs2: attrs2,
-// 		});
-// 	}, 400) // bad code
-
-
-// 	return (
-// 		<div>
-// 			<p>source Attr</p>
-// 			<AttributeTable attrs={attrs1} setAttrs={setAttrs1} setChanged={setChanged}/>
-// 			<p>img Attr</p>
-// 			<AttributeTable attrs={attrs2} setAttrs={setAttrs2} setChanged={setChanged}/>
-// 		</div>
-// 	)
-// }
-
-// export default Picture;

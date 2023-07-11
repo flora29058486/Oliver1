@@ -48,8 +48,8 @@ function App() {
       case "MobileButtonWithoutLogo":
         setMode("MobileButtonWithoutLogo");
         break;
-      case "ToolDevider":
-        setMode("ToolDevider");
+      case "VideoBanner":
+        setMode("VideoBanner");
         break;
       default:
         break;
@@ -67,14 +67,14 @@ function App() {
       case "NormalPicture":
         ret += `<picture>\n`;
         ret += `\t<source srcset="${v.srcset}" type="image/webp">\n`;
-        ret += `\t<img itemprop="image" alt="${v.alt}" src="${v.src}" title="${v.title}" loading="lazy" class="mobile-ui" width="${v.width}" height="${v.height}">\n`;
+        ret += `\t<img itemprop="image" alt="${v.alt}" src="${v.src}" title="${v.title}" loading="lazy" class="${v.size}" width="${v.width}" height="${v.height}">\n`;
         ret += `</picture>\n`;
         break;
           
       case "IndexUlConnentArticleID":
         ret += `<ul class="index">\n`;
         if (v.liList) v.liList.map((v, i) => {
-          ret += `\t<li><a href="#" onclick="$('html, body').animate({ scrollTop: $('${v.id}').offset().top-120 }); return false;">${v.title}</a></li>\n`;
+          ret += `\t<li><a href="${v.id}" onclick="$('html, body').animate({ scrollTop: $('${v.id}').offset().top-120 }); return false;">${v.title}</a></li>\n`;
         })
         ret += `</ul>\n`;
         break;
@@ -96,16 +96,19 @@ function App() {
         break;
       
       case "TitlePicture":
-        ret += `<picture id="a0">\n`;
-        ret += `<source media="(min-width: 550px)" srcset="${v.srcset1}" type="image/webp">\n`;
-        ret += `<source media="(max-width: 550px)" srcset="${v.srcset2}" type="image/webp" width="${v.width}" height="${v.height}">\n`;
-        ret += `<source media="(min-width: 550px)" srcset="${v.srcset3}" type="image/jpeg">\n`;
-        ret += `<source media="(max-width: 550px)" srcset="${v.srcset4}" type="image/jpeg" width="${v.width}" height="${v.height}">\n`;
-        ret += `<img src="${v.src}" alt="${v.alt}" loading="eager" width="1000" height="333">\n`;
+        ret += `<picture>\n`;
+        ret += `\t<source media="(min-width: 550px)" srcset="${v.srcset1}" type="image/webp">\n`;
+        ret += `\t<source media="(max-width: 550px)" srcset="${v.srcset2}" type="image/webp" width="${v.width}" height="${v.height}">\n`;
+        ret += `\t<source media="(min-width: 550px)" srcset="${v.srcset3}" type="image/jpeg">\n`;
+        ret += `\t<source media="(max-width: 550px)" srcset="${v.srcset4}" type="image/jpeg" width="${v.width}" height="${v.height}">\n`;
+        ret += `\t<img src="${v.src}" alt="${v.alt}" loading="eager" width="1000" height="333">\n`;
         ret += `</picture>\n`;
         break;
       case "H2Orange":
-        ret += `<h2 class="title-h2 orange" id="${v.id}">${v.title}</h2>\n`;
+        if (v.id !== "a01") {
+          ret += `<div class="divider"></div>\n`
+        }
+        ret += `<h2 class="title-h2 orange" id="${v.id}">${v.title}</h2>\n\n\n`;
         break;
       case "H2FakeH3":
         ret += `<h2 class="fake-h3">${v.title}</h2>\n`;
@@ -133,12 +136,30 @@ function App() {
         ret += `\t<jsp:param name="CustomText" value="${v.text}" />\n`;
         ret += `</jsp:include>\n`;
         break;
-      case "ToolDevider":
-        ret += `<div class="divider"></div>\n`
+      case "VideoBanner":
+        ret += `<div id="mobile-only">\n`;
+        ret += `\t<video width="550" height="309" playsinline loop muted autoplay>\n`;
+        ret += `\t\t<source src="./img/${v.smallwebm}.webm" type="video/webm">\n`;
+        ret += `\t\t<source src="./img/${v.smallmp4}.mp4" type="video/mp4">\n`;
+        ret += `\tYour browser does not support the video tag.\n`;
+        ret += `\t</video>\n`;
+        ret += `</div>\n`;
+        ret += `<div id="desktop-only">\n`;
+        ret += `\t<video width="1200" height="333" playsinline loop muted autoplay>\n`;
+        ret += `\t\t<source src="./img/${v.bigwebm}.webm" type="video/webm">\n`;
+        ret += `\t\t<source src="./img/${v.bigmp4}.mp4" type="video/mp4">\n`;
+        ret += `\tYour browser does not support the video tag.\n`;
+        ret += `\t</video>\n`;
+        ret += `</div>\n`
         break;
       default:
         break;
     }
+    navigator.clipboard.writeText(ret).then(() => {
+      console.log("Clipped")
+    }, () => {
+      console.log("clipboard fail")
+    });
     return ret;
   }
         

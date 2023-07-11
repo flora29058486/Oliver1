@@ -3,7 +3,7 @@ import AttributeTable from "../AttributeTable";
 
 const H2Orange = (props) => {
 
-	const [title, setTitle] = useState("PhotoDirector: The Best App to Edit Your Summer Photos");
+	const [title, setTitle] = useState("");
 	const [id, setId] = useState("a0");
 	useEffect(() => {
 		props.setJspObj({

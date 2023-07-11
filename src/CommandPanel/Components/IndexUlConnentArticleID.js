@@ -4,7 +4,7 @@ const IndexUlConnentArticleID = (props) => {
 	const [liList, setLiList] = useState([
 		{
 			'id': "#a01",
-			'title': "PhotoDirector: The Best App to Edit Your Summer Photos",
+			'title': "",
 		}
 	])
 
