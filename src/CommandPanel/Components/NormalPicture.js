@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import AttributeTable from "../AttributeTable";
 
 const NormalPicture = (props) => {
-	const [srcset, setSrcset] = useState("img/img_0.webp");
+	const [filename, setFilename] = useState("img_0");
+	const [filetype, setFiletype] = useState("jpg");
 	const [alt, setAlt] = useState("");
-	const [src, setSrc] = useState("img/img_0.jpg");
 	const [title, setTitle] = useState("PhotoDirector App - Best AI Editing App");
 	const [width, setWidth] = useState("");
 	const [height, setHeight] = useState("");
@@ -15,31 +15,43 @@ const NormalPicture = (props) => {
 		props.setJspObj({
 			mode: "NormalPicture",
 			type: "NormalPicture",
-			srcset: srcset,
+			filename: filename,
+			filetype: filetype,
 			alt: alt,
-			src: src,
 			title: title,
 			width: width,
 			height: height,
 			size: size,
 			anchor: anchor
 		});
-	}, [srcset, alt, src, title, width, height, size, anchor]);
+	}, [filename,filetype, alt, title, width, height, size, anchor]);
 
 
 
 	return (
 		<div>
-			<p>srcset</p>
+			<p>Filename</p>
 			<input
-				value={srcset}
-				onChange={(e) => setSrcset(e.target.value)}
+				value={filename}
+				onChange={(e) => setFilename(e.target.value)}
 			/>
-			<p>src</p>
-			<input
-				value={src}
-				onChange={(e) => setSrc(e.target.value)}
-			/>
+			<p>size</p>
+			<button
+				className="AddRow"
+				onClick={() => {
+					setSize("mobile-ui");
+				}}
+			>
+				mobile-ui
+			</button>
+			<button
+				className="AddRow"
+				onClick={() => {
+					setSize("mobile-wide");
+				}}
+			>
+				mobile-wide
+			</button>
 			<p>alt</p>
 			<textarea
 				value={alt}
@@ -60,22 +72,31 @@ const NormalPicture = (props) => {
 				value={height}
 				onChange={(e) => setHeight(e.target.value)}
 			/>
-			<p>size</p>
+			
+			<p>Filetype</p>
 			<button
 				className="AddRow"
 				onClick={() => {
-					setSize("mobile-ui");
+					setFiletype(".jpg");
 				}}
 			>
-				mobile-ui
+				.jpg
 			</button>
 			<button
 				className="AddRow"
 				onClick={() => {
-					setSize("mobile-wide");
+					setFiletype(".gif");
 				}}
 			>
-				mobile-wide
+				.gif
+			</button>
+			<button
+				className="AddRow"
+				onClick={() => {
+					setFiletype(".png");
+				}}
+			>
+				.png
 			</button>
 			<p>In-Body Link</p>
 			<button

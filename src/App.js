@@ -69,11 +69,11 @@ function App() {
           ret += `<a source="In-Body Image" href="\${(os == 'Android') || (os=='Windows') ? 'https://play.google.com/store/apps/details?id=com.cyberlink.photodirector&referrer=utm_source%3Dclblog' : 'https://photodirector.page.link/Unk8'}" onclick="GoogleAnalyticsEventTracking('Mobile_Blog_article_body_image_\${device}', 'Click', ' Mobile_FreeDownload_PhotoDirector_\${os}');" target="_blank" title="PhotoDirector App | Creative Photo Editing for Mobile">\n`
         }
         ret += `${v.anchor? "\t": ""}<picture>\n`;
-        ret += `${v.anchor? "\t": ""}\t<source srcset="${v.srcset}" type="image/webp">\n`;
-        ret += `${v.anchor? "\t": ""}\t<img itemprop="image" alt="${v.alt}" src="${v.src}" title="${v.title}" loading="lazy" class="${v.size}" width="${v.width}" height="${v.height}">\n`;
+        ret += `${v.anchor? "\t": ""}\t<source srcset="img/${v.filename}.webp" type="image/webp">\n`;
+        ret += `${v.anchor? "\t": ""}\t<img itemprop="image" alt="${v.alt}" src="img/${v.filename}${v.filetype}" title="${v.title}" loading="lazy" class="${v.size}" width="${v.width}" height="${v.height}">\n`;
         ret += `${v.anchor? "\t": ""}</picture>\n${v.anchor? "</a>": ""}`;
         break;
-          
+
       case "IndexUlConnentArticleID":
         ret += `<ul class="index">\n`;
         if (v.liList) v.liList.map((v, i) => {
