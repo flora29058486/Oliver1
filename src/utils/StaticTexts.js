@@ -14,13 +14,13 @@ const StaticTexts = {
 	margin: auto!important;
 }
 .mobile-wide{
-	max-width:500px;
+	max-width: 500px;
 	margin: auto!important;
 }
 .description h2.fake-h3 {
-		font-size: 23px!important;
-		background: none!important;
-		padding: 0;
+	font-size: 23px!important;
+	background: none!important;
+	padding: 0;
 }
 .rec-article{
 	font-size: 15px;

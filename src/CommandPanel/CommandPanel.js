@@ -7,12 +7,12 @@ import IndexUlConnentArticleID from "./Components/IndexUlConnentArticleID";
 import TitlePicture from "./Components/TitlePicture";
 import H2Orange from "./Components/H2Orange";
 import H2FakeH3 from "./Components/H2FakeH3";
-import ToolInBodyInstallAppLink from "./Components/ToolInBodyInstallAppLink";
 import ButtonMobileDownloadButton from "./Components/ButtonMobileDownloadButton";
 import VideoBanner from "./Components/VideoBanner";
 import "./CommandPanel.css"
 import MobileButtonWithoutLogo from "./Components/MobileButtonWithoutLogo";
 import FAQs from "./Components/FAQs";
+import GALink from "./Components/GALink";
 // import RenderImage from "../image/renderImage";
 
 const ModeButton = (props) => {
@@ -45,7 +45,7 @@ const CommandPanel = () => {
 	const [jspObj, setJspObj] = useState({});
 	const [created, setCreated] = useState(false);
 
-	const componentList = ["TitlePicture", "IndexUlConnentArticleID", "FAQs", "H2Orange", "H2FakeH3" , "VideoBanner", "NormalPicture", "Text",  "ToolInBodyInstallAppLink", "ButtonMobileDownloadButton", "MobileButtonWithoutLogo"];
+	const componentList = ["TitlePicture", "IndexUlConnentArticleID", "FAQs", "H2Orange", "H2FakeH3" , "VideoBanner", "NormalPicture", "Text", "ButtonMobileDownloadButton", "MobileButtonWithoutLogo", "GALink"];
 
 	
 	useEffect(() => {
@@ -76,9 +76,6 @@ const CommandPanel = () => {
 		case "H2FakeH3":
 			modePanel = <H2FakeH3 jspObj={jspObj} setJspObj={setJspObj}/>;
 			break;
-		case "ToolInBodyInstallAppLink":
-			modePanel = <ToolInBodyInstallAppLink jspObj={jspObj} setJspObj={setJspObj}/>;
-			break;
 		case "ButtonMobileDownloadButton":
 			modePanel = <ButtonMobileDownloadButton jspObj={jspObj} setJspObj={setJspObj}/>;
 			break;
@@ -87,6 +84,9 @@ const CommandPanel = () => {
 			break;
 		case "MobileButtonWithoutLogo":
 			modePanel = <MobileButtonWithoutLogo jspObj={jspObj} setJspObj={setJspObj}/>;
+			break;
+		case "GALink":
+			modePanel = <GALink jspObj={jspObj} setJspObj={setJspObj}/>;
 			break;
 		default:
 			break;

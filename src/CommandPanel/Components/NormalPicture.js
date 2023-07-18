@@ -9,6 +9,7 @@ const NormalPicture = (props) => {
 	const [width, setWidth] = useState("");
 	const [height, setHeight] = useState("");
 	const [size, setSize] = useState("mobile-ui");
+	const [anchor, setAnchor] = useState(true);
 
 	useEffect(() => {
 		props.setJspObj({
@@ -20,9 +21,10 @@ const NormalPicture = (props) => {
 			title: title,
 			width: width,
 			height: height,
-			size: size
+			size: size,
+			anchor: anchor
 		});
-	}, [srcset, alt, src, title, width, height, size]);
+	}, [srcset, alt, src, title, width, height, size, anchor]);
 
 
 
@@ -74,6 +76,23 @@ const NormalPicture = (props) => {
 				}}
 			>
 				mobile-wide
+			</button>
+			<p>In-Body Link</p>
+			<button
+				className="AddRow"
+				onClick={() => {
+					setAnchor(true);
+				}}
+			>
+				Yes
+			</button>
+			<button
+				className="AddRow"
+				onClick={() => {
+					setAnchor(false);
+				}}
+			>
+				No
 			</button>
 		</div>
 	)

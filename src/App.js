@@ -39,9 +39,6 @@ function App() {
       case "H2FakeH3":
         setMode("H2FakeH3");
         break;
-      case "ToolInBodyInstallAppLink":
-        setMode("ToolInBodyInstallAppLink");
-        break;
       case "ButtonMobileDownloadButton":
         setMode("ButtonMobileDownloadButton");
         break;
@@ -50,6 +47,9 @@ function App() {
         break;
       case "VideoBanner":
         setMode("VideoBanner");
+        break;
+      case "GALink":
+        setMode("GALink");
         break;
       default:
         break;
@@ -65,10 +65,13 @@ function App() {
         break;
         
       case "NormalPicture":
-        ret += `<picture>\n`;
-        ret += `\t<source srcset="${v.srcset}" type="image/webp">\n`;
-        ret += `\t<img itemprop="image" alt="${v.alt}" src="${v.src}" title="${v.title}" loading="lazy" class="${v.size}" width="${v.width}" height="${v.height}">\n`;
-        ret += `</picture>\n`;
+        if (v.anchor === true) {
+          ret += `<a source="In-Body Image" href="\${(os == 'Android') || (os=='Windows') ? 'https://play.google.com/store/apps/details?id=com.cyberlink.photodirector&referrer=utm_source%3Dclblog' : 'https://photodirector.page.link/Unk8'}" onclick="GoogleAnalyticsEventTracking('Mobile_Blog_article_body_image_\${device}', 'Click', ' Mobile_FreeDownload_PhotoDirector_\${os}');" target="_blank" title="PhotoDirector App | Creative Photo Editing for Mobile">\n`
+        }
+        ret += `${v.anchor? "\t": ""}<picture>\n`;
+        ret += `${v.anchor? "\t": ""}\t<source srcset="${v.srcset}" type="image/webp">\n`;
+        ret += `${v.anchor? "\t": ""}\t<img itemprop="image" alt="${v.alt}" src="${v.src}" title="${v.title}" loading="lazy" class="${v.size}" width="${v.width}" height="${v.height}">\n`;
+        ret += `${v.anchor? "\t": ""}</picture>\n${v.anchor? "</a>": ""}`;
         break;
           
       case "IndexUlConnentArticleID":
@@ -111,15 +114,11 @@ function App() {
         ret += `<h2 class="title-h2 orange" id="${v.id}">${v.title}</h2>\n\n\n`;
         break;
       case "H2FakeH3":
-        ret += `<h2 class="fake-h3">${v.title}</h2>\n`;
-        break;
-      case "ToolInBodyInstallAppLink":
-        ret += `<a source="In-Body Image" href="\${(os == 'Android') || (os=='Windows') ? 'https://play.google.com/store/apps/details?id=com.cyberlink.photodirector&referrer=utm_source%3Dclblog' : 'https://photodirector.page.link/Unk8'}" onclick="GoogleAnalyticsEventTracking('Mobile_Blog_article_body_image_\${device}', 'Click', ' Mobile_FreeDownload_PhotoDirector_\${os}');" target="_blank" title="PhotoDirector App | Creative Photo Editing for Mobile">\n`;
-        ret += `\t<picture>\n`;
-        ret += `\t\t<source srcset="${v.srcset}" type="image/webp">\n`;
-        ret += `\t\t<img itemprop="image" alt="${v.alt}" src="${v.src}" title="${v.title}" loading="lazy" class="mobile-wide" width="350" height="490">\n`;
-        ret += `\t</picture>\n`;
-        ret += `</a>\n`;
+        if (v.id === "") {
+          ret += `<h2 class="fake-h3">${v.title}</h2>\n`;
+        } else {
+          ret += `<h2 class="fake-h3" id="${v.id}">${v.title}</h2>\n`;
+        }
         break;
       case "ButtonMobileDownloadButton":
         ret += `<jsp:include page="/stat/blog/resource/module/cta-responsive-download-master.jsp">\n`;
@@ -152,6 +151,9 @@ function App() {
         ret += `\t</video>\n`;
         ret += `</div>\n`
         break;
+      case "GALink":
+        ret += `${v.ret_out}`;
+        break
       default:
         break;
     }
