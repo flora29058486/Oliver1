@@ -52,6 +52,14 @@ const NormalPicture = (props) => {
 			>
 				mobile-wide
 			</button>
+			<button
+				className="AddRow"
+				onClick={() => {
+					setSize("small-logo");
+				}}
+			>
+				small-logo
+			</button>
 			<p>alt</p>
 			<textarea
 				value={alt}
